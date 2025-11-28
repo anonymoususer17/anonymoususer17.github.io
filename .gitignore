@@ -1,0 +1,6 @@
+# Claude Code documentation
+CLAUDE.md
+
+# Hidden files and folders (dotfiles)
+.*
+!.gitignore
