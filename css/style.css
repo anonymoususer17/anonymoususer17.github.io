@@ -159,7 +159,7 @@ body {
 .hero-subtitle {
     font-size: 1.125rem;
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     font-weight: 300;
 }
 
