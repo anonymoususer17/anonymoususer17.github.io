@@ -18,92 +18,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="nav" aria-label="Primary navigation">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo" aria-label="Julien, home"><span class="nav-mark">J/17</span><span class="nav-name">Julien</span></a>
-            <ul class="nav-menu">
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="experience.html" class="nav-link">Experience</a></li>
-                <li><a href="projects.html" class="nav-link active">Projects</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-            </ul>
-            <span class="nav-status"><i></i> Available</span>
-        </div>
-    </nav>
-
-    <main class="page-content">
-        <div class="container">
-            <header class="page-header">
-                <h1 class="page-title">Projects</h1>
-                <div class="title-underline"></div>
-            </header>
-
-            <section class="projects-grid">
-                <article class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">National E-Licensing System (NELS)</h3>
-                        <p class="project-description">
-                            Full-stack development of online forms and business processes for Mauritius'
-                            national licensing platform. Built a comprehensive e-government solution
-                            handling licensing workflows from application to approval.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Angular 5/19</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">IBM DB2</span>
-                            <span class="tag">IBM BPM</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link">EDB Mauritius</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Enterprise Back Office Solutions</h3>
-                        <p class="project-description">
-                            Developed and maintained critical back office applications using a diverse
-                            technology stack. Implemented business logic, database operations, and user
-                            interfaces for various enterprise clients.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C#</span>
-                            <span class="tag">VB.Net</span>
-                            <span class="tag">Angular</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">.NET Core</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link">Infomil Ltd.</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Government Online Forms</h3>
-                        <p class="project-description">
-                            Created dynamic online forms for the Mauritius Government Website with
-                            real-time validation. Integrated SOAP web services to connect with the
-                            national Infohighway system for data verification.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">jQuery</span>
-                            <span class="tag">SOAP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link">Government Portal</a>
-                        </div>
-                    </div>
-                </article>
-            </section>
-        </div>
+    <main class="screen-page projects-page">
+        <header class="screen-header">
+            <a class="back-home" href="index.html">← J/17</a>
+            <h1>Projects</h1>
+            <span>03 / 04</span>
+        </header>
+        <section class="project-board" aria-label="Selected projects">
+            <article class="project-panel project-main">
+                <span class="project-index">01</span>
+                <h2>National E-Licensing System</h2>
+                <p>Online forms and multi-stage licensing workflows for Mauritius' national platform.</p>
+                <div class="tech-line">Angular 5/19 · Java · IBM DB2 · IBM BPM</div>
+            </article>
+            <article class="project-panel project-enterprise">
+                <span class="project-index">02</span>
+                <h2>Enterprise Back Office</h2>
+                <p>Business logic, database operations and interfaces for enterprise clients.</p>
+                <div class="tech-line">C# · VB.NET · Angular · SQL · .NET Core</div>
+            </article>
+            <article class="project-panel project-government">
+                <span class="project-index">03</span>
+                <h2>Government Online Forms</h2>
+                <p>Dynamic public forms with InfoHighway validation through SOAP services.</p>
+                <div class="tech-line">HTML · PHP · JavaScript · jQuery · SOAP</div>
+            </article>
+        </section>
     </main>
 
-    <script src="js/main.js"></script>
 </body>
 </html>
