@@ -689,7 +689,6 @@ body {
     --green: #35d07f;
     --orange: #ff982f;
     --yellow: #ffd21a;
-    --electric: #7048ff;
 }
 
 .home-page { background: var(--paper); color: var(--ink); overflow-x: hidden; }
@@ -877,69 +876,10 @@ html, body { width: 100%; min-height: 100%; }
 .home-screen {
     width: 100%;
     height: 100svh;
-    position: relative;
-    isolation: isolate;
     display: grid;
     grid-template-columns: minmax(0, .9fr) minmax(32rem, 1.1fr);
     background: var(--paper);
 }
-.circuit-map {
-    position: absolute;
-    z-index: 10;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    color: var(--electric);
-    pointer-events: none;
-}
-.circuit-map path,.circuit-map circle {
-    vector-effect: non-scaling-stroke;
-}
-.circuit-map path {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: square;
-    stroke-linejoin: round;
-    transition: opacity .24s ease, stroke-width .24s ease, filter .24s ease;
-}
-.circuit-map circle { fill: currentColor; stroke: currentColor; stroke-width: 1.5; transition: opacity .24s ease, filter .24s ease; }
-.circuit-trunk { opacity: .74; }
-.circuit-branch { opacity: .46; }
-.circuit-echo { opacity: .25; stroke-dasharray: 3 6; }
-.circuit-nodes { opacity: .82; }
-.circuit-terminal { opacity: .52; transition: opacity .24s ease, filter .24s ease; }
-.circuit-terminal circle { fill: none; }
-.circuit-terminal circle:last-child { stroke-dasharray: 2 4; }
-@keyframes circuitFlow { to { stroke-dashoffset: -14; } }
-.home-screen:has(.route-about:is(:hover,:focus-visible)) :is(.circuit-about,.terminal-about),
-.home-screen:has(.route-experience:is(:hover,:focus-visible)) :is(.circuit-experience,.terminal-experience),
-.home-screen:has(.route-projects:is(:hover,:focus-visible)) :is(.circuit-projects,.terminal-projects),
-.home-screen:has(.route-skills:is(:hover,:focus-visible)) :is(.circuit-skills,.terminal-skills),
-.about-page:has(.about-lead:hover) .circuit-lead,
-.about-page:has(.about-facts:hover) .circuit-facts,
-.about-page:has(.about-email:is(:hover,:focus-visible)) .circuit-email,
-.about-page:has(.about-github:is(:hover,:focus-visible)) .circuit-github,
-.experience-page:has(.career-card:nth-child(1):hover) .circuit-exp-one,
-.experience-page:has(.career-card:nth-child(2):hover) .circuit-exp-two,
-.experience-page:has(.career-card:nth-child(3):hover) .circuit-exp-three,
-.projects-page:has(.project-panel:nth-child(1):hover) .circuit-project-one,
-.projects-page:has(.project-panel:nth-child(2):hover) .circuit-project-two,
-.projects-page:has(.project-panel:nth-child(3):hover) .circuit-project-three,
-.skills-page:has(.skill-panel:nth-child(1):hover) .circuit-skill-one,
-.skills-page:has(.skill-panel:nth-child(2):hover) .circuit-skill-two,
-.skills-page:has(.skill-panel:nth-child(3):hover) .circuit-skill-three {
-    opacity: 1;
-    stroke-width: 3;
-    filter: drop-shadow(0 0 3px var(--electric));
-    stroke-dasharray: 9 5;
-    animation: circuitFlow .55s linear infinite;
-}
-.home-screen:has(.route-about:is(:hover,:focus-visible)) .node-about,
-.home-screen:has(.route-experience:is(:hover,:focus-visible)) .node-experience,
-.home-screen:has(.route-projects:is(:hover,:focus-visible)) .node-projects,
-.home-screen:has(.route-skills:is(:hover,:focus-visible)) .node-skills { opacity: 1; filter: drop-shadow(0 0 5px var(--electric)); }
 .identity-column {
     min-width: 0;
     min-height: 0;
@@ -973,8 +913,8 @@ html, body { width: 100%; min-height: 100%; }
 .identity-corner { position: absolute; z-index: 1; display: flex; flex-direction: column; pointer-events: none; opacity: .18; }
 .identity-corner span { font: 900 clamp(2.8rem, 4.4vw, 5rem)/.72 var(--font-mono); letter-spacing: -.07em; text-transform: uppercase; white-space: nowrap; }
 .identity-corner span:nth-child(even) { color: transparent; -webkit-text-stroke: 1px var(--ink); }
-.identity-engineer { top: 14%; left: -.08em; align-items: flex-start; }
-.identity-mauritius { right: -.06em; bottom: 14%; align-items: flex-end; text-align: right; }
+.identity-engineer { top: calc(50% - 10rem); left: -.08em; align-items: flex-start; }
+.identity-mauritius { right: -.06em; bottom: calc(50% - 10rem); align-items: flex-end; text-align: right; }
 .identity-contact-grid { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; }
 .identity-contact { position: relative; isolation: isolate; display: flex; align-items: flex-end; justify-content: space-between; padding: clamp(.75rem, 1.5vw, 1.4rem); overflow: hidden; color: var(--ink); text-decoration: none; border-right: 1px solid var(--ink); font-size: clamp(1.2rem, 2vw, 2rem); font-weight: 900; line-height: .82; letter-spacing: -.055em; text-transform: uppercase; transition: background-color .22s ease, color .22s ease; }
 .identity-contact:last-child { border-right: 0; }
@@ -1048,8 +988,8 @@ html, body { width: 100%; min-height: 100%; }
     .identity-column { border-right: 0; border-bottom: 1px solid var(--ink); grid-template-rows: minmax(0, 1fr) clamp(4rem, 10svh, 5.5rem); }
     .identity-panel { border-right: 0; border-bottom: 1px solid var(--ink); }
     .identity-corner span { font-size: clamp(1.35rem, 5.7vw, 2rem); }
-    .identity-engineer { top: 2%; }
-    .identity-mauritius { bottom: 2%; }
+    .identity-engineer { top: calc(50% - 3rem); }
+    .identity-mauritius { bottom: calc(50% - 3rem); }
     .identity-panel h1 { font-size: clamp(3.2rem, min(18vw, 11.5vh), 6.2rem); line-height: .82; }
     .route-name { font-size: clamp(1.5rem, 8vw, 3rem); }
 }
@@ -1058,8 +998,6 @@ body:not(.home-page) { height: 100svh; overflow: hidden; }
 .screen-page {
     width: 100%;
     height: 100svh;
-    position: relative;
-    isolation: isolate;
     display: grid;
     grid-template-columns: clamp(7rem, 13vw, 12rem) minmax(0, 1fr);
     background: var(--paper);
@@ -1223,10 +1161,6 @@ body:not(.home-page) { height: 100svh; overflow: hidden; }
 .skill-front:hover .skill-code { transform: rotate(-2deg) translateX(.3rem); }
 
 @media (max-width: 700px) {
-    .circuit-map path { stroke-width: 1.5; }
-    .circuit-trunk { opacity: .5; }
-    .circuit-branch { opacity: .28; }
-    .circuit-terminal { opacity: .35; }
     .screen-page { grid-template-columns: 1fr; grid-template-rows: 12svh 88svh; }
     .home-panel { flex-direction: row; padding: .75rem 1rem; border-right: 0; border-bottom: 1px solid var(--ink); }
     .home-panel span { margin: 0; font-size: clamp(2rem, 10vw, 3.5rem); writing-mode: horizontal-tb; transform: none; }
