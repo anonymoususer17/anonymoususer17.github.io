@@ -78,18 +78,14 @@
 
         if (elements.length === 0) return;
 
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        elements.forEach(el => el.classList.add('reveal-ready'));
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(20px)';
-                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 50);
-
+                    entry.target.classList.add('is-visible');
                     observer.unobserve(entry.target);
                 }
             });
@@ -118,6 +114,24 @@
         });
     }
 
+    // A restrained afterimage shift: the visual responds, but never chases the cursor.
+    function initSignalParallax() {
+        const panel = document.querySelector('.panel-signal');
+        const ghost = document.querySelector('.signal-ghost');
+        if (!panel || !ghost || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        panel.addEventListener('pointermove', (event) => {
+            const bounds = panel.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            ghost.style.translate = `${x * 16}px ${y * 12}px`;
+        });
+
+        panel.addEventListener('pointerleave', () => {
+            ghost.style.translate = '0 0';
+        });
+    }
+
     // ===========================
     // Initialize Everything
     // ===========================
@@ -127,6 +141,7 @@
         enhanceSmoothScroll();
         initFadeInAnimations();
         initNavScrollEffect();
+        initSignalParallax();
     }
 
     // Run when DOM is ready

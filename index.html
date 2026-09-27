@@ -3,47 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portfolio and resume">
-    <title>Portfolio</title>
+    <meta name="description" content="Julien — software engineer building public infrastructure and enterprise systems in Mauritius.">
+    <meta property="og:title" content="Julien — Software Engineer">
+    <meta property="og:description" content="Full-stack engineering for public infrastructure and enterprise systems.">
+    <meta property="og:image" content="https://anonymoususer17.github.io/images/og.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Julien — Software Engineer">
+    <meta name="twitter:description" content="Full-stack engineering for public infrastructure and enterprise systems.">
+    <meta name="twitter:image" content="https://anonymoususer17.github.io/images/og.png">
+    <title>Julien — Software Engineer</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <nav class="nav">
+<body class="home-page">
+    <nav class="nav" aria-label="Primary navigation">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Portfolio</a>
+            <a href="index.html" class="nav-logo" aria-label="Julien, home">
+                <span class="nav-mark">J/17</span>
+                <span class="nav-name">Julien</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="experience.html" class="nav-link">Experience</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
             </ul>
+            <span class="nav-status"><i></i> Available</span>
         </div>
     </nav>
 
-    <main class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Julien</h1>
-            <p class="hero-subtitle">Software Engineer</p>
-            <p class="hero-subtitle">Full-Stack · Angular · Java · .NET</p>
+    <main>
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-meta" aria-hidden="true">
+            <span>Portfolio / 2026</span>
+            <span>20.2° S · 57.5° E</span>
+        </div>
+        <div class="hero-copy">
+            <p class="hero-kicker">Software engineer<br>based in Mauritius</p>
+            <h1 class="hero-title" id="hero-title" data-text="JULIEN">JULIEN</h1>
+            <p class="hero-statement">I build the systems<br>behind the service.</p>
             <div class="hero-cta">
-                <a href="about.html" class="btn btn-primary">Learn More</a>
-                <a href="projects.html" class="btn btn-secondary">View Work</a>
+                <a href="projects.html" class="btn btn-primary">Selected work <span>↗</span></a>
+                <a href="mailto:jberobinson.pro@gmail.com" class="btn btn-secondary">Start a conversation</a>
             </div>
         </div>
-        <a href="#expertise" class="scroll-indicator">
-            <span class="scroll-text">Scroll</span>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="visual-panel panel-index">
+                <span>FULL STACK</span><strong>01</strong><span>PUBLIC SYSTEMS</span>
+            </div>
+            <div class="visual-panel panel-signal">
+                <span class="signal-letter">J</span>
+                <span class="signal-letter signal-ghost">J</span>
+                <div class="scan-line"></div>
+                <small>AFTERIMAGE<br>ACTIVE</small>
+            </div>
+            <div class="visual-panel panel-repeat">
+                <span>BUILD SYSTEMS</span><span>BUILD SYSTEMS</span>
+                <span>BUILD SYSTEMS</span><span>BUILD SYSTEMS</span>
+                <span>BUILD SYSTEMS</span><span>BUILD SYSTEMS</span>
+            </div>
+            <div class="visual-panel panel-stack">
+                <span>ANGULAR</span><span>JAVA</span><span>.NET</span><span>SQL</span>
+            </div>
+        </div>
+        <a href="#expertise" class="scroll-indicator" aria-label="Scroll to expertise">
+            <span class="scroll-text">Explore</span>
             <span class="scroll-line"></span>
         </a>
-    </main>
+    </section>
 
     <section id="expertise" class="expertise-section">
         <div class="container">
-            <h2 class="section-title">Expertise</h2>
+            <header class="section-heading">
+                <span class="section-index">02 / Capabilities</span>
+                <h2 class="section-title">Engineering across<br>the whole system.</h2>
+            </header>
             <div class="expertise-grid">
                 <div class="expertise-card">
+                    <span class="card-number">01</span>
                     <h3 class="expertise-title">Full-Stack Development</h3>
                     <p class="expertise-description">
                         End-to-end web application development. Frontend: Angular (v5-19), TypeScript, JavaScript.
@@ -52,6 +92,7 @@
                     <div class="expertise-tech">Angular · Java · .NET</div>
                 </div>
                 <div class="expertise-card">
+                    <span class="card-number">02</span>
                     <h3 class="expertise-title">Database & BPM</h3>
                     <p class="expertise-description">
                         SQL Server and IBM DB2 database design. Advanced SQL queries, stored procedures, performance
@@ -60,6 +101,7 @@
                     <div class="expertise-tech">SQL · IBM DB2 · IBM BPM</div>
                 </div>
                 <div class="expertise-card">
+                    <span class="card-number">03</span>
                     <h3 class="expertise-title">E-Government Solutions</h3>
                     <p class="expertise-description">
                         National E-Licensing System (NELS) platform development. Government portal integration,
@@ -68,6 +110,7 @@
                     <div class="expertise-tech">Enterprise · Security · Integration</div>
                 </div>
                 <div class="expertise-card">
+                    <span class="card-number">04</span>
                     <h3 class="expertise-title">Enterprise Applications</h3>
                     <p class="expertise-description">
                         Back office systems for enterprise clients. Business logic implementation, data management,
@@ -80,21 +123,17 @@
     </section>
 
     <section class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <p class="contact-intro">
-                Available for software engineering roles, contract work, and technical consulting.
-            </p>
+        <div class="container contact-grid">
+            <span class="section-index">03 / Contact</span>
+            <h2 class="contact-title">Let’s make the complex<br><em>feel inevitable.</em></h2>
             <div class="contact-details">
-                <a href="mailto:jberobinson.pro@gmail.com" class="contact-link">jberobinson.pro@gmail.com</a>
-            </div>
-            <div class="contact-links">
-                <a href="https://github.com/anonymoususer17" class="link" target="_blank">GitHub</a>
-                <a href="experience.html" class="link">View Experience</a>
+                <a href="mailto:jberobinson.pro@gmail.com" class="contact-link">jberobinson.pro@gmail.com ↗</a>
+                <a href="https://github.com/anonymoususer17" class="contact-link" target="_blank" rel="noreferrer">GitHub ↗</a>
             </div>
         </div>
     </section>
 
+    </main>
     <script src="js/main.js"></script>
 </body>
 </html>
