@@ -1141,27 +1141,34 @@ body:not(.home-page) { height: 100svh; overflow: hidden; }
 .career-card:hover .career-date { transform: translateY(.25rem); }
 
 /* Projects */
-.project-board { min-height: 0; display: grid; grid-template-columns: 1.25fr .75fr; grid-template-rows: 1fr 1fr; }
-.project-panel { min-width: 0; position: relative; isolation: isolate; display: flex; flex-direction: column; padding: clamp(.9rem, 1.8vw, 1.8rem); overflow: hidden; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.project-main { grid-row: 1 / 3; background: var(--violet); color: var(--paper); }
-.project-enterprise { border-right: 0; background: var(--signal); }
-.project-government { border-right: 0; border-bottom: 0; background: var(--acid); }
+.project-board { min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.project-panel { min-width: 0; position: relative; isolation: isolate; display: flex; flex-direction: column; padding: clamp(.75rem, 1.3vw, 1.25rem); overflow: hidden; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); color: var(--ink); text-decoration: none; }
+.project-panel:nth-child(3n) { border-right: 0; }
+.project-panel:nth-child(n+7) { border-bottom: 0; }
+.project-panel:nth-child(1) { background: var(--violet); color: var(--paper); }
+.project-panel:nth-child(2) { background: var(--signal); }
+.project-panel:nth-child(3) { background: var(--acid); }
+.project-panel:nth-child(4) { background: var(--cyan); }
+.project-panel:nth-child(5) { background: var(--paper); }
+.project-panel:nth-child(6) { background: var(--blue); color: var(--paper); }
+.project-panel:nth-child(7) { background: var(--green); }
+.project-panel:nth-child(8) { background: var(--yellow); }
+.project-panel:nth-child(9) { background: var(--ink); color: var(--paper); }
 .project-index { font: 700 .65rem/1 var(--font-mono); }
-.project-panel h2 { max-width: 14ch; margin: auto 0 .65rem; font-size: clamp(1.8rem, 3.8vw, 4.2rem); font-weight: 900; line-height: .82; letter-spacing: -.065em; text-transform: uppercase; }
-.project-panel p { max-width: 43rem; margin: 0 0 1rem; font-size: clamp(1rem, 1.55vw, 1.35rem); font-weight: 800; line-height: 1.08; }
-.tech-line { margin-top: 0; padding-top: .7rem; border-top: 1px solid currentColor; font: 800 clamp(.78rem, 1.15vw, 1rem)/1.25 var(--font-mono); text-transform: uppercase; }
+.project-panel h2 { max-width: 13ch; margin: auto 0 .45rem; font-size: clamp(1.3rem, 2.4vw, 2.6rem); font-weight: 900; line-height: .82; letter-spacing: -.065em; text-transform: uppercase; }
+.project-panel p { max-width: 32rem; margin: 0; padding-top: .45rem; border-top: 1px solid currentColor; font: 800 clamp(.64rem, .82vw, .78rem)/1.2 var(--font-mono); text-transform: uppercase; }
+.project-arrow { position: absolute; top: clamp(.75rem, 1.3vw, 1.25rem); right: clamp(.75rem, 1.3vw, 1.25rem); font-size: 1rem; transition: transform .22s ease; }
 .project-panel > * { position: relative; z-index: 2; }
-.project-panel::before { content: attr(data-mark); position: absolute; z-index: 0; right: -.08em; bottom: -.18em; color: transparent; -webkit-text-stroke: 2px currentColor; font-size: clamp(10rem, 22vw, 23rem); font-weight: 900; line-height: .7; letter-spacing: -.1em; opacity: .2; transform: rotate(5deg); }
-.project-enterprise::before { top: 5%; bottom: auto; font-size: clamp(6rem, 11vw, 11rem); transform: rotate(-7deg); }
-.project-government::before { right: auto; left: -.1em; bottom: -.25em; font-size: clamp(6rem, 12vw, 12rem); transform: rotate(3deg); }
+.project-panel::before { content: attr(data-mark); position: absolute; z-index: 0; right: -.08em; bottom: -.18em; color: transparent; -webkit-text-stroke: 1px currentColor; font-size: clamp(5rem, 9vw, 9rem); font-weight: 900; line-height: .7; letter-spacing: -.1em; opacity: .2; transform: rotate(5deg); }
+.project-panel:nth-child(3n+2)::before { top: 12%; bottom: auto; transform: rotate(-7deg); }
+.project-panel:nth-child(3n)::before { right: auto; left: -.08em; transform: rotate(3deg); }
 .project-panel { transition: filter .25s ease, box-shadow .25s ease; }
 .project-panel h2,.project-index { transition: transform .25s cubic-bezier(.2,.8,.2,1); }
 .project-panel:hover { z-index: 2; filter: none; box-shadow: inset 0 0 0 6px currentColor; }
-.project-main:hover { background: var(--blue); color: var(--paper); }
-.project-enterprise:hover { background: var(--green); color: var(--ink); }
-.project-government:hover { background: var(--yellow); color: var(--ink); }
+.project-panel:focus-visible { z-index: 3; outline: 0; box-shadow: inset 0 0 0 6px currentColor; }
 .project-panel:hover h2 { transform: translateX(.35rem); }
 .project-panel:hover .project-index { transform: translateY(.25rem); }
+.project-panel:hover .project-arrow { transform: translate(3px, -3px); }
 
 /* Skills */
 .skill-board { min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -1211,12 +1218,16 @@ body:not(.home-page) { height: 100svh; overflow: hidden; }
     .career-card h2 { font-size: clamp(1.25rem, 6vw, 2rem); }
     .career-company { font-size: .78rem; }
     .career-summary { grid-column: 1 / -1; padding-top: .45rem; font-size: .62rem; }
-    .project-board { grid-template-columns: 1fr; grid-template-rows: 1.2fr 1fr 1fr; }
-    .project-main { grid-row: auto; }
-    .project-panel { border-right: 0; padding: .75rem 1rem; }
-    .project-panel h2 { margin: auto 0 .35rem; font-size: clamp(1.25rem, 6vw, 2rem); }
-    .project-panel p { margin-bottom: .4rem; font-size: .78rem; }
-    .tech-line { padding-top: .35rem; font-size: .62rem; }
+    body.projects-body { height: auto; min-height: 100svh; overflow: auto; }
+    .projects-body .screen-page { height: auto; min-height: 100svh; grid-template-rows: 12svh auto; }
+    .projects-body .page-stage { grid-template-rows: 12svh auto; }
+    .project-board { grid-template-columns: 1fr; grid-template-rows: none; }
+    .project-panel { min-height: 9.5rem; border-right: 0; padding: .75rem 1rem; }
+    .project-panel:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .project-panel:last-child { border-bottom: 0; }
+    .project-panel h2 { margin: auto 0 .35rem; font-size: clamp(1.5rem, 7vw, 2.35rem); }
+    .project-panel p { font-size: .62rem; }
+    .project-arrow { top: .75rem; right: 1rem; }
     .skill-board { grid-template-columns: 1fr; grid-template-rows: repeat(3, 1fr); }
     .skill-panel { grid-template-columns: 3.5rem .8fr 1.5fr; grid-template-rows: 1fr; align-items: center; border-right: 0; border-bottom: 1px solid var(--ink); padding: .6rem .8rem; }
     .skill-panel:last-child { border-bottom: 0; }
