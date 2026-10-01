@@ -1012,6 +1012,7 @@ html, body { width: 100%; min-height: 100%; }
 @media (max-width: 760px) {
     .home-screen { grid-template-columns: 1fr; grid-template-rows: 38svh 62svh; }
     .identity-column { border-right: 0; border-bottom: 1px solid var(--ink); grid-template-rows: minmax(0, 1fr) clamp(4rem, 10svh, 5.5rem); }
+    .identity-contact-grid { grid-template-columns: 1.15fr .85fr; }
     .identity-panel { border-right: 0; border-bottom: 1px solid var(--ink); }
     .identity-corner span { font-size: clamp(1.35rem, 5.7vw, 2rem); }
     .identity-engineer { top: calc(50% - 3rem); }
