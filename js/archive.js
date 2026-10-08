@@ -101,7 +101,27 @@ function enrich(){
  }
 }
 const scaleVector=new THREE.Vector3();
-function frame(){const t=clock.getElapsedTime(),dt=Math.min(t-lastTime,.05);lastTime=t;const ease=reduced?1:1-Math.exp(-dt*9),hit=drag?null:hitTest(),next=hit?.item||null;if(next!==hovered){hovered=next;if(hovered)tick(150);}if(!drag)canvas.style.cursor=hit?'pointer':'grab';archive.rotation.y=THREE.MathUtils.lerp(archive.rotation.y,selected?0:turn+(reduced?0:pointer.x*.025),ease);archive.rotation.x=THREE.MathUtils.lerp(archive.rotation.x,selected?0:tilt+(reduced?0:-pointer.y*.018),ease);items.forEach((a,i)=>{a.hover=THREE.MathUtils.lerp(a.hover,hovered===a?1:0,ease);const f=reduced||selected?0:Math.sin(t*.6+i*1.7)*.045;a.group.position.x=THREE.MathUtils.lerp(a.group.position.x,a.target.x,ease);a.group.position.y=THREE.MathUtils.lerp(a.group.position.y,a.target.y+f+a.hover*.12,ease);a.group.position.z=THREE.MathUtils.lerp(a.group.position.z,a.target.z+a.hover*.6,ease);a.group.rotation.x=THREE.MathUtils.lerp(a.group.rotation.x,a.targetRot.x+(hovered===a?pointer.y*.06:0),ease);a.group.rotation.y=THREE.MathUtils.lerp(a.group.rotation.y,a.targetRot.y+(hovered===a?pointer.x*.06:0),ease);a.group.rotation.z=THREE.MathUtils.lerp(a.group.rotation.z,a.targetRot.z*(1-a.hover*.45),ease);a.group.scale.lerp(scaleVector.setScalar(a.targetScale+a.hover*.035),ease);});if(sculpture&&!reduced){sculpture.rotation.y=Math.sin(t*.2)*.45;sculpture.rotation.z=t*.035;}renderer.autoClear=true;renderer.render(scene,camera);renderer.autoClear=false;renderer.clearDepth();renderer.render(ui,uiCamera);}
+function frame(){
+ const t=clock.getElapsedTime(),dt=Math.min(t-lastTime,.05);lastTime=t;
+ const ease=reduced?1:1-Math.exp(-dt*9),hit=drag?null:hitTest(),next=hit?.item||null;
+ if(next!==hovered){hovered=next;if(hovered)tick(150);}if(!drag)canvas.style.cursor=hit?'pointer':'grab';
+ archive.rotation.y=THREE.MathUtils.lerp(archive.rotation.y,selected?0:turn+(reduced?0:pointer.x*.025),ease);
+ archive.rotation.x=THREE.MathUtils.lerp(archive.rotation.x,selected?0:tilt+(reduced?0:-pointer.y*.018),ease);
+ items.forEach((a,i)=>{
+  a.hover=THREE.MathUtils.lerp(a.hover,hovered===a?1:0,ease);const f=reduced||selected?0:Math.sin(t*.6+i*1.7)*.045;
+  a.group.position.x=THREE.MathUtils.lerp(a.group.position.x,a.target.x,ease);
+  a.group.position.y=THREE.MathUtils.lerp(a.group.position.y,a.target.y+f+a.hover*.12,ease);
+  a.group.position.z=THREE.MathUtils.lerp(a.group.position.z,a.target.z+a.hover*.6,ease);
+  a.group.rotation.x=THREE.MathUtils.lerp(a.group.rotation.x,a.targetRot.x+(hovered===a?pointer.y*.06:0),ease);
+  a.group.rotation.y=THREE.MathUtils.lerp(a.group.rotation.y,a.targetRot.y+(hovered===a?pointer.x*.06:0),ease);
+  a.group.rotation.z=THREE.MathUtils.lerp(a.group.rotation.z,a.targetRot.z*(1-a.hover*.45),ease);
+  a.group.scale.lerp(scaleVector.setScalar(a.targetScale+a.hover*.035),ease);
+ });
+ if(sculpture&&!reduced){sculpture.rotation.y=Math.sin(t*.2)*.45;sculpture.rotation.z=t*.035;}
+ ui.traverse(o=>{if(o.isMesh){o.renderOrder=1000;o.material.depthTest=false;o.material.depthWrite=false;}});
+ renderer.render(scene,camera);
+}
+ui.position.z=10;scene.add(ui);
 scene.onBeforeRender=()=>{enrich();for(const a of items){if(selected&&a!==selected)a.target.x=a.base.x+(a.base.x>=0?W:-W);if(a.model){a.model.position.z=a.w*.2+.075+a.hover*.2;if(!reduced){const t=clock.elapsedTime;a.model.rotation.y=Math.sin(t*.6)*.12+a.hover*.22;a.model.rotation.x=Math.cos(t*.5)*.08;if(a.kind==='disc'||a.kind==='orbit')a.model.rotation.z=t*(a.kind==='disc'?.1:.065);}}}};
 resize();renderer.setAnimationLoop(frame);document.documentElement.classList.add('archive-ready');document.addEventListener('visibilitychange',()=>renderer.setAnimationLoop(document.hidden?null:frame));canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();document.documentElement.classList.remove('archive-ready');canvas.style.display='none';});canvas.addEventListener('webglcontextrestored',()=>location.reload());
 window.archiveStatus=()=>({section:current,objects:items.length,selected:selected?.id||null,drawCalls:renderer.info.render.calls,webgl:renderer.getContext().getParameter(renderer.getContext().VERSION)});
