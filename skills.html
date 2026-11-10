@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Julien's technical capabilities across Angular, Java, .NET, SQL and enterprise workflows.">
+    <meta name="theme-color" content="#4a1a7e">
     <meta property="og:title" content="Technical Skills — Julien">
     <meta property="og:description" content="Angular, Java, .NET, SQL and enterprise workflow engineering.">
     <meta property="og:image" content="https://anonymoususer17.github.io/images/og.png">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Technical Skills — Julien">
     <meta name="twitter:description" content="Angular, Java, .NET, SQL and enterprise workflow engineering.">
@@ -15,35 +17,53 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/artdirection.css">
-    <link rel="stylesheet" href="css/archive.css">
-    <script type="module" src="js/archive.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script src="js/site.js" defer></script>
 </head>
-<body>
-    <main class="screen-page skills-page">
-        <a class="home-panel" href="index.html"><span>Home</span><b>↙</b></a>
-        <section class="page-stage">
-            <div class="page-title-block"><h1>Skills</h1><span>04 / 04</span></div>
-            <div class="skill-board" aria-label="Technical skills">
-            <article class="skill-panel skill-front">
-                <span class="skill-code">FE</span>
-                <h2>Frontend</h2>
-                <div class="skill-list"><span>Angular 5—19</span><span>TypeScript</span><span>JavaScript</span><span>HTML / CSS</span></div>
-            </article>
-            <article class="skill-panel skill-back">
-                <span class="skill-code">BE</span>
-                <h2>Backend</h2>
-                <div class="skill-list"><span>C# / .NET Core</span><span>Java</span><span>VB.NET</span><span>Python</span></div>
-            </article>
-            <article class="skill-panel skill-data">
-                <span class="skill-code">DB</span>
-                <h2>Data &amp; Process</h2>
-                <div class="skill-list"><span>SQL Server</span><span>IBM DB2</span><span>IBM BPM</span></div>
-            </article>
-            </div>
-        </section>
-    </main>
+<body class="page-body">
+    <div class="bg" aria-hidden="true">
+        <div class="bg-burst"></div>
+        <div class="bg-dots"></div>
+        <div class="bg-ink"></div>
+        <div class="bg-slash"></div>
+    </div>
 
+    <a class="back" href="index.html"><span class="back-arrow" aria-hidden="true">◀</span> Home <kbd aria-hidden="true">Esc</kbd></a>
+
+    <header class="clock" aria-hidden="true">
+        <span class="clock-date" data-date>11/10</span>
+        <span class="clock-day" data-day>TUE</span>
+    </header>
+
+    <main class="page">
+        <div class="title-block">
+            <span class="title-num" aria-hidden="true">04<small>/04</small></span>
+            <h1 class="ransom" data-ransom>Skills</h1>
+        </div>
+
+        <div class="skills" aria-label="Technical skills">
+            <article class="skill" style="--i:0">
+                <h2 class="skill-title">Frontend</h2>
+                <ul class="chips"><li>Angular 5—19</li><li>TypeScript</li><li>JavaScript</li><li>HTML / CSS</li></ul>
+            </article>
+            <article class="skill" style="--i:1">
+                <h2 class="skill-title">Backend</h2>
+                <ul class="chips"><li>C# / .NET Core</li><li>Java</li><li>VB.NET</li><li>Python</li></ul>
+            </article>
+            <article class="skill" style="--i:2">
+                <h2 class="skill-title">Data &amp; Process</h2>
+                <ul class="chips"><li>SQL Server</li><li>IBM DB2</li><li>IBM BPM</li></ul>
+            </article>
+        </div>
+
+        <nav class="pager" aria-label="More pages">
+            <a class="pager-link pager-prev" href="projects.html" data-pager="prev"><span class="pager-dir"><kbd aria-hidden="true">←</kbd> Previous</span><span class="pager-name">Projects</span></a>
+            <a class="pager-link pager-next" href="about.html" data-pager="next"><span class="pager-dir">Next <kbd aria-hidden="true">→</kbd></span><span class="pager-name">About</span></a>
+        </nav>
+    </main>
 </body>
 </html>

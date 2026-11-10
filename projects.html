@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Public code by Julien: applications, experiments and programming exercises.">
+    <meta name="theme-color" content="#4a1a7e">
     <meta property="og:title" content="Projects — Julien">
     <meta property="og:description" content="Applications, experiments and programming exercises published on GitHub.">
     <meta property="og:image" content="https://anonymoususer17.github.io/images/og.png">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Projects — Julien">
     <meta name="twitter:description" content="Applications, experiments and programming exercises published on GitHub.">
@@ -15,56 +17,48 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/artdirection.css">
-    <link rel="stylesheet" href="css/archive.css">
-    <script type="module" src="js/archive.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script src="js/site.js" defer></script>
 </head>
-<body class="projects-body">
-    <main class="screen-page projects-page">
-        <a class="home-panel" href="index.html"><span>Home</span><b>↙</b></a>
-        <section class="page-stage">
-            <div class="page-title-block"><h1>Projects</h1><span>03 / 04</span></div>
-            <div class="project-board" aria-label="Public GitHub projects">
-                <a class="project-panel" data-mark="ST" href="https://github.com/anonymoususer17/satat" target="_blank" rel="noreferrer">
-                    <span class="project-index">01 / DART</span>
-                    <h2>Satat</h2>
-                    <p>Realtime Flutter adaptation of a four-player trick-taking game.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="project-panel" data-mark="LS" href="https://github.com/anonymoususer17/localsite" target="_blank" rel="noreferrer">
-                    <span class="project-index">02 / JS</span>
-                    <h2>Local Site</h2>
-                    <p>Flask playground for galleries, a CV and a browser game.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="project-panel" data-mark="JR" href="https://github.com/anonymoususer17/anonymoususer17.github.io" target="_blank" rel="noreferrer">
-                    <span class="project-index">03 / CSS</span>
-                    <h2>Portfolio</h2>
-                    <p>This site, built with plain HTML, CSS and JavaScript.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="project-panel" data-mark="AD" href="https://github.com/anonymoususer17/algo-design-manual" target="_blank" rel="noreferrer">
-                    <span class="project-index">04 / C</span>
-                    <h2>Algo Manual</h2>
-                    <p>C exercises from The Algorithm Design Manual.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="project-panel" data-mark="24" href="https://github.com/anonymoususer17/advent-of-code-2024" target="_blank" rel="noreferrer">
-                    <span class="project-index">05 / PYTHON</span>
-                    <h2>Advent 2024</h2>
-                    <p>Python solutions for the opening Advent of Code puzzles.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="project-panel" data-mark="PE" href="https://github.com/anonymoususer17/eulerproject" target="_blank" rel="noreferrer">
-                    <span class="project-index">06 / C</span>
-                    <h2>Project Euler</h2>
-                    <p>Compact C solutions to early mathematical challenges.</p>
-                    <span class="project-arrow" aria-hidden="true">↗</span>
-                </a>
-            </div>
-        </section>
-    </main>
+<body class="page-body">
+    <div class="bg" aria-hidden="true">
+        <div class="bg-burst"></div>
+        <div class="bg-dots"></div>
+        <div class="bg-ink"></div>
+        <div class="bg-slash"></div>
+    </div>
 
+    <a class="back" href="index.html"><span class="back-arrow" aria-hidden="true">◀</span> Home <kbd aria-hidden="true">Esc</kbd></a>
+
+    <header class="clock" aria-hidden="true">
+        <span class="clock-date" data-date>11/10</span>
+        <span class="clock-day" data-day>TUE</span>
+    </header>
+
+    <main class="page">
+        <div class="title-block">
+            <span class="title-num" aria-hidden="true">03<small>/04</small></span>
+            <h1 class="ransom" data-ransom>Projects</h1>
+            <p class="kicker"><span>Public code on GitHub</span></p>
+        </div>
+
+        <div class="projects" aria-label="Public GitHub projects">
+            <a class="project" style="--i:0" href="https://github.com/anonymoususer17/satat" target="_blank" rel="noreferrer"><span class="project-tag">01 / Dart</span><h2 class="project-title">Satat</h2><p class="project-desc">Realtime Flutter adaptation of a four-player trick-taking game.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" style="--i:1" href="https://github.com/anonymoususer17/localsite" target="_blank" rel="noreferrer"><span class="project-tag">02 / JS</span><h2 class="project-title">Local Site</h2><p class="project-desc">Flask playground for galleries, a CV and a browser game.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" style="--i:2" href="https://github.com/anonymoususer17/anonymoususer17.github.io" target="_blank" rel="noreferrer"><span class="project-tag">03 / CSS</span><h2 class="project-title">Portfolio</h2><p class="project-desc">This site, built with plain HTML, CSS and JavaScript.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" style="--i:3" href="https://github.com/anonymoususer17/algo-design-manual" target="_blank" rel="noreferrer"><span class="project-tag">04 / C</span><h2 class="project-title">Algo Manual</h2><p class="project-desc">C exercises from The Algorithm Design Manual.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" style="--i:4" href="https://github.com/anonymoususer17/advent-of-code-2024" target="_blank" rel="noreferrer"><span class="project-tag">05 / Python</span><h2 class="project-title">Advent 2024</h2><p class="project-desc">Python solutions for the opening Advent of Code puzzles.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" style="--i:5" href="https://github.com/anonymoususer17/eulerproject" target="_blank" rel="noreferrer"><span class="project-tag">06 / C</span><h2 class="project-title">Project Euler</h2><p class="project-desc">Compact C solutions to early mathematical challenges.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <nav class="pager" aria-label="More pages">
+            <a class="pager-link pager-prev" href="experience.html" data-pager="prev"><span class="pager-dir"><kbd aria-hidden="true">←</kbd> Previous</span><span class="pager-name">Experience</span></a>
+            <a class="pager-link pager-next" href="skills.html" data-pager="next"><span class="pager-dir">Next <kbd aria-hidden="true">→</kbd></span><span class="pager-name">Skills</span></a>
+        </nav>
+    </main>
 </body>
 </html>

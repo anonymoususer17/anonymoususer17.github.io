@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Julien, a software engineer in Mauritius working across full-stack development and public digital services.">
+    <meta name="theme-color" content="#4a1a7e">
     <meta property="og:title" content="About Julien — Software Engineer">
     <meta property="og:description" content="Full-stack engineering for public infrastructure and enterprise systems.">
     <meta property="og:image" content="https://anonymoususer17.github.io/images/og.png">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Julien — Software Engineer">
     <meta name="twitter:description" content="Full-stack engineering for public infrastructure and enterprise systems.">
@@ -15,35 +17,66 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/artdirection.css">
-    <link rel="stylesheet" href="css/archive.css">
-    <script type="module" src="js/archive.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script src="js/site.js" defer></script>
 </head>
-<body>
-    <main class="screen-page about-page">
-        <a class="home-panel" href="index.html"><span>Home</span><b>↙</b></a>
-        <section class="page-stage">
-            <div class="page-title-block"><h1>About</h1><span>01 / 04</span></div>
-            <div class="about-layout">
-            <div class="about-lead" data-mark="JR">
-                <p>Software engineer working across public digital services and enterprise applications in Mauritius.</p>
-            </div>
-            <div class="about-facts" data-mark="01">
-                <dl>
-                    <div><dt>Current</dt><dd>Economic Development Board Mauritius</dd></div>
-                    <div><dt>Education</dt><dd>BSc Software Engineering, University of Mauritius · 2020</dd></div>
-                    <div><dt>Focus</dt><dd>Angular, Java, .NET, SQL, IBM BPM</dd></div>
-                    <div><dt>Languages</dt><dd>English, French, Mauritian Creole</dd></div>
-                </dl>
-            </div>
-            <div class="about-links">
-                <a class="about-link about-email" data-mark="@" href="mailto:jberobinson.pro@gmail.com"><strong>Email</strong><span>jberobinson.pro@gmail.com ↗</span></a>
-                <a class="about-link about-github" data-mark="GH" href="https://github.com/anonymoususer17" target="_blank" rel="noreferrer"><strong>GitHub</strong><span>anonymoususer17 ↗</span></a>
-            </div>
-            </div>
-        </section>
-    </main>
+<body class="page-body">
+    <div class="bg" aria-hidden="true">
+        <div class="bg-burst"></div>
+        <div class="bg-dots"></div>
+        <div class="bg-ink"></div>
+        <div class="bg-slash"></div>
+    </div>
 
+    <a class="back" href="index.html"><span class="back-arrow" aria-hidden="true">◀</span> Home <kbd aria-hidden="true">Esc</kbd></a>
+
+    <header class="clock" aria-hidden="true">
+        <span class="clock-date" data-date>11/10</span>
+        <span class="clock-day" data-day>TUE</span>
+    </header>
+
+    <main class="page">
+        <div class="title-block">
+            <span class="title-num" aria-hidden="true">01<small>/04</small></span>
+            <h1 class="ransom" data-ransom>About</h1>
+            <p class="kicker"><span>Who I am</span></p>
+        </div>
+
+        <section class="about">
+            <div class="about-lead">
+                <p class="speech"><span>Software engineer working across public digital services and enterprise applications in Mauritius.</span></p>
+                <div class="cards">
+                    <a class="card card-mail" href="mailto:jberobinson.pro@gmail.com">
+                        <span class="card-kicker">Send word</span>
+                        <span class="card-title">Email</span>
+                        <span class="card-arrow" aria-hidden="true">↗</span>
+                        <span class="card-sub">jberobinson.pro@gmail.com</span>
+                    </a>
+                    <a class="card card-gh" href="https://github.com/anonymoususer17" target="_blank" rel="noreferrer">
+                        <span class="card-kicker">Source</span>
+                        <span class="card-title">GitHub</span>
+                        <span class="card-arrow" aria-hidden="true">↗</span>
+                        <span class="card-sub">anonymoususer17</span>
+                    </a>
+                </div>
+            </div>
+
+            <dl class="sheet" aria-label="Profile">
+                <div class="sheet-row" style="--i:0; --r:-1deg"><dt>Current</dt><dd>Economic Development Board Mauritius</dd></div>
+                <div class="sheet-row" style="--i:1; --r:.8deg"><dt>Education</dt><dd>BSc Software Engineering<small>University of Mauritius · 2020</small></dd></div>
+                <div class="sheet-row" style="--i:2; --r:-.6deg"><dt>Focus</dt><dd>Angular, Java, .NET, SQL, IBM BPM</dd></div>
+                <div class="sheet-row" style="--i:3; --r:1deg"><dt>Languages</dt><dd>English, French, Mauritian Creole</dd></div>
+            </dl>
+        </section>
+
+        <nav class="pager" aria-label="More pages">
+            <a class="pager-link pager-prev" href="skills.html" data-pager="prev"><span class="pager-dir"><kbd aria-hidden="true">←</kbd> Previous</span><span class="pager-name">Skills</span></a>
+            <a class="pager-link pager-next" href="experience.html" data-pager="next"><span class="pager-dir">Next <kbd aria-hidden="true">→</kbd></span><span class="pager-name">Experience</span></a>
+        </nav>
+    </main>
 </body>
 </html>

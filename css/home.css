@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Homepage — hero + game-style menu, always exactly one screen
+   (shared pieces live in base.css)
+   ========================================================================== */
+
+.stage {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    align-items: center;
+    gap: 4vw;
+    padding: max(56px, min(10vh, 110px)) clamp(20px, 5vw, 80px) min(6vh, 64px);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: min(2.6vh, 26px);
+    min-height: 0;
+}
+
+.hero .ransom { font-size: min(7.4vw, 12.5vh, 124px); }
+.hero .word + .word { margin-left: .9em; }
+
+.hero .tags  { animation: slam-left .55s var(--slam) .7s both; }
+.hero .cards { margin-top: min(1vh, 12px); flex-wrap: nowrap; animation: slam-left .55s var(--slam) .85s both; }
+
+/* ---------- Menu ---------- */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: min(.8vh, 10px);
+    padding-left: clamp(0px, 3vw, 48px);
+}
+
+.menu-item {
+    --pad: calc(var(--i) * min(2.2vw, 3.6vh, 36px));
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .9rem;
+    margin-left: var(--pad);
+    padding: .05em .45em 0 .3em;
+    font-family: var(--display);
+    font-size: min(5.2vw, 10.5vh, 92px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--paper);
+    transform: rotate(var(--r)) skewX(-6deg);
+    transition: transform .22s var(--slam), color .12s;
+    animation: slam-right .55s var(--slam) both;
+    animation-delay: calc(.3s + var(--i) * 90ms);
+    outline: none;
+    isolation: isolate;
+}
+
+/* jagged highlight + offset shadow, drawn behind label */
+.menu-item::before,
+.menu-item::after {
+    content: "";
+    position: absolute;
+    inset: -.08em -.25em -.04em -.15em;
+    z-index: -1;
+    transform: scale(0, .6);
+    transform-origin: left center;
+    transition: transform .22s var(--snap);
+}
+
+.menu-item::after {
+    background: var(--green);
+    clip-path: polygon(0 14%, 92% 0, 100% 74%, 96% 100%, 4% 88%);
+}
+
+.menu-item::before {
+    background: var(--violet);
+    clip-path: polygon(3% 4%, 100% 16%, 95% 100%, 0 82%);
+    translate: .14em .12em;
+    z-index: -2;
+}
+
+.menu-num {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(10px, .15em, 14px);
+    letter-spacing: .1em;
+    color: var(--lime);
+    border: 2px solid currentColor;
+    padding: .15em .35em;
+    transform: skewX(6deg) translateY(-.6em);
+    transition: color .12s, background .12s;
+}
+
+.menu-label { display: inline-block; }
+
+.menu-item.is-active,
+.menu-item:focus-visible {
+    color: var(--ink);
+    transform: rotate(calc(var(--r) * -.6)) skewX(-6deg) scale(1.06) translateX(.12em);
+    z-index: 2;
+}
+
+.menu-item.is-active::before,
+.menu-item.is-active::after,
+.menu-item:focus-visible::before,
+.menu-item:focus-visible::after { transform: scale(1, 1); }
+
+.menu-item.is-active::before,
+.menu-item:focus-visible::before { transition-delay: .04s; }
+
+.menu-item.is-active .menu-num,
+.menu-item:focus-visible .menu-num { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+
+.menu-item.is-active .menu-label { animation: jolt .28s var(--snap); }
+
+.menu-hint {
+    margin-top: min(2vh, 24px);
+    margin-left: calc(4 * min(2.2vw, 3.6vh, 36px));
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    opacity: .8;
+    animation: fade .6s ease 1s both;
+}
+
+.menu-hint kbd {
+    display: inline-block;
+    min-width: 1.8em;
+    text-align: center;
+    font-family: var(--mono);
+    border: 1px solid currentColor;
+    padding: .05em .3em;
+    margin-right: .2em;
+}
+
+/* ---------- Short landscape screens (phones on their side) ---------- */
+
+@media (max-height: 520px) and (orientation: landscape) {
+    .hero .tags, .menu-hint { display: none; }
+    .stage { padding-top: max(48px, 13vh); padding-bottom: 12px; }
+}
+
+/* ---------- Phones / tablets held upright ---------- */
+
+@media (max-width: 900px) and (orientation: portrait) {
+    .stage {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: min(3vh, 28px);
+        padding: max(64px, min(9vh, 96px)) 16px 0;
+    }
+
+    .hero { gap: min(1.8vh, 18px); flex: none; }
+    .hero .ransom { font-size: min(12.5vw, 7vh, 96px); }
+    .hero .word + .word { margin-left: .5em; }
+    .hero .speech { font-size: clamp(12px, min(4.2vw, 2.3vh), 20px); max-width: 32ch; }
+    .hero .tags { display: none; }
+
+    .menu {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        justify-content: center;
+        gap: min(.6vh, 8px);
+        margin: 0 -16px;
+        padding: min(6vh, 56px) 16px min(4vh, 40px);
+        background:
+            repeating-linear-gradient(-62deg, rgba(195, 155, 255, .05) 0 2px, transparent 2px 20px),
+            var(--ink);
+        clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .menu::before {
+        content: "";
+        position: absolute;
+        left: 0; right: 0; top: 0;
+        height: 34px;
+        background: var(--green);
+        clip-path: polygon(0 28px, 100% 0, 100% 6px, 0 34px);
+    }
+
+    .menu-item {
+        --pad: calc(var(--i) * min(4.5vw, 2.4vh));
+        font-size: min(13vw, 7.4vh, 80px);
+    }
+
+    .menu-hint { display: none; }
+}
